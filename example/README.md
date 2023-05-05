@@ -1,0 +1,1 @@
+Run a pipeline that enrich incoming data and introduce an error

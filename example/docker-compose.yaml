@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  kraft:
+    container_name: kraft
+    image: bitnami/kafka:3.3.2
+    ports:
+    - 9092:9092
+    environment:
+    - ALLOW_PLAINTEXT_LISTENER=yes
+    - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+    - KAFKA_KRAFT_CLUSTER_ID=ER3_z1HcQ3q_JYsJWecV0w
+    - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+    - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+
+  arangodb:
+    container_name: arangodb
+    image: arangodb:3.10.6
+    ports:
+    - 8529:8529
+    environment:
+    - ARANGO_NO_AUTH=1
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:6.0.5
+    ports:
+    - 27017:27017
